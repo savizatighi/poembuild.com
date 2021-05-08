@@ -13,11 +13,10 @@ function App() {
       <header className="App-header">
       <TextField
           id="outlined-textarea"
-          label="Multiline Placeholder"
-          placeholder="type"
+          placeholder="Write Your Poem"
           multiline
           variant="outlined"
-          class="input"
+          className="input"
           onChange={(event) => getRhymes(event.target.value)}
         />
       </header>
