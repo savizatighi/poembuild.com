@@ -1,5 +1,4 @@
 import TextField from '@material-ui/core/TextField';
-import logo from './logo.svg';
 import './App.css';
 
 const getRhymes = ((word) => {
@@ -12,7 +11,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src="poembuildlogo.png"/>
       <TextField
           id="outlined-textarea"
           label="Multiline Placeholder"
