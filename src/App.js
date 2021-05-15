@@ -4,6 +4,10 @@ import './App.css';
 
 function App() {
   const [state, setState] = useState([]);
+  const getLastWord = (poem) => {
+    const indexOfLastSpace = poem.lastIndexOf(" ")
+    return poem.substr(indexOfLastSpace + 1)
+}
   const getRhymes = ((word) => {
     fetch(`https://api.datamuse.com/words?rel_rhy=${word}`)
     .then(response => response.json())
@@ -20,7 +24,7 @@ function App() {
           multiline
           variant="outlined"
           class="input"
-          onChange={(event) => getRhymes(event.target.value)}
+          onChange={(event) => getRhymes(getLastWord(event.target.value))}
         />
         <List>
           {state.map((rhyme) => <ListItem>{rhyme.word}</ListItem>)}
@@ -31,4 +35,4 @@ function App() {
 }
 
 export default App;
-<p>hi web</p>
+
