@@ -6,7 +6,9 @@ function App() {
   const [state, setState] = useState([]);
   const getLastWord = (poem) => {
     const indexOfLastSpace = poem.lastIndexOf(" ")
-    return poem.substr(indexOfLastSpace + 1)
+    const indexOfLastLineBreak = poem.indexOf("\n")
+    const highestIndex=Math.max(indexOfLastLineBreak, indexOfLastSpace)
+    return poem.substr(highestIndex + 1)
 }
   const getRhymes = ((word) => {
     fetch(`https://api.datamuse.com/words?rel_rhy=${word}`)
