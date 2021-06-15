@@ -4,6 +4,8 @@ import './App.css';
 
 function App() {
   const [state, setState] = useState([]);
+  const selection = window.getSelection().toString();
+  
   const getLastWord = (poem) => {
     const indexOfLastSpace = poem.lastIndexOf(" ")
     const indexOfLastLineBreak = poem.indexOf("\n")
@@ -15,20 +17,21 @@ function App() {
     .then(response => response.json())
     .then(data => setState(data));
   })
-  console.log(state)
   return (
     <div className="App">
       <header className="App-header">
-        <h1>type your poem</h1>
+        <h1>type your poem </h1>
+        <h2>highlight a word to see the rhymes</h2>
       <TextField
 
-          id="outlined-textarea"
-          label="Multiline Placeholder"
-          placeholder="type"
+id="outlined-textarea"
+label="Multiline Placeholder"
+placeholder="type"
           multiline
           variant="outlined"
           class="input"
-          onChange={(event) => getRhymes(getLastWord(event.target.value))}
+          onMouseUp={(event) => getRhymes(getLastWord(window.getSelection().toString()))}
+
         />
         <List>
           {state.map((rhyme) => <ListItem>{rhyme.word}</ListItem>)}
