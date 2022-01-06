@@ -7,6 +7,7 @@ function App() {
   const selection = window.getSelection().toString();
   
   const getLastWord = (poem) => {
+    console.log
     const indexOfLastSpace = poem.lastIndexOf(" ")
     const indexOfLastLineBreak = poem.indexOf("\n")
     const highestIndex=Math.max(indexOfLastLineBreak, indexOfLastSpace)
@@ -42,4 +43,3 @@ placeholder="type"
 }
 
 export default App;
-
